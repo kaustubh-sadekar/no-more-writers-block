@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Page</title>
+</head>
+<body>
+  <textarea id="textbox" onkeydown="return disableBackspace(event)">
+  </textarea>
+  <script>
+    function disableBackspace(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 8) {
+        e.preventDefault();
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
