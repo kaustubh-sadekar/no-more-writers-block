@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin: 0;
+      padding: 20px;
+      background-color: lightgray;
+      text-align: center;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 0;
+      padding: 20px;
+      background-color: lightgray;
+      text-align: center;
+      font-size: 24px;
+    }
+    p {
+      margin: 20px;
+    }
+    textarea {
+      width: 90%;
+      height: 500px;
+      margin: 20px;
+      padding: 20px;
+      font-size: 16px;
+      border: 1px solid lightgray;
+      box-sizing: border-box;
+      resize: none;
+    }
+    button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: lightgray;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      margin: 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
+  <h1>Writer's Block Helper</h1>
+  <h2>Where Your Ideas Go to Thrive (or at Least Survive)</h2>
+  <p>Are you struggling with writer's block? This page can help! Simply type your ideas into the text box below and click the "Copy Text" button when you're ready to move on to the next section of your writing. The copied text can be pasted into a new document or app, allowing you to easily pick up where you left off.</p>
   <textarea id="textbox" onkeydown="return disableBackspace(event)">
   </textarea>
+  <button onclick="copyText()">Copy Text</button>
+  <footer>Code brought to you by Chat GPT, the writing assistant that's so advanced it can write a paragraph without breaking a sweat. And unlike humans, Chat GPT doesn't stress out about backspace (or anything else, really). In fact, Chat GPT thinks backspace is the root of all stress, which is why it's been disabled in this text box. So go ahead, type away without a care in the world. Just try not to stress out about it like us mere mortals do.</footer>
   <script>
     function disableBackspace(e) {
       var keyCode = e.keyCode || e.which;
@@ -13,6 +65,11 @@
         e.preventDefault();
         return false;
       }
+    }
+    function copyText() {
+      var textbox = document.getElementById("textbox");
+      textbox.select();
+      document.execCommand("copy");
     }
   </script>
 </body>
